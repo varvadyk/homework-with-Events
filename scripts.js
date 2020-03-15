@@ -12,56 +12,23 @@ const quick_two = document.querySelector(".button-sound--fife");
 const bam = document.querySelector(".button-sound--six");
 
 //click sounds
-function soundsBells() {
-	if (dindon) {
-		dindon.addEventListener("click", function() {
-			sound_bells.play();
+
+const init_sound_button_click = (btn, audio_source) => {
+	if (btn) {
+		btn.addEventListener("click", function() {
+			btn.currentTime = 0;
+			audio_source.play();
 		});
 	} else {
-		console.log("eror");
+		throw new Error("button doesn't exist");
 	}
-	if (donlong) {
-		donlong.addEventListener("click", function() {
-			donlong.currentTime = 0;
-			sound_bells_don_long.play();
-		});
-	} else {
-		console.log("eror");
-	}
-	if (quick) {
-		quick.addEventListener("click", function() {
-			quick.currentTime = 0;
-			sound_quick.play();
-		});
-	} else {
-		console.log("eror");
-	}
-	if (quick_two) {
-		quick_two.addEventListener("click", function() {
-			quick_two.currentTime = 0;
-			sound_quick_two.play();
-		});
-	} else {
-		console.log("eror");
-	}
-	if (long) {
-		long.addEventListener("click", function() {
-			long.currentTime = 0;
-			sound_long.play();
-		});
-	} else {
-		console.log("eror");
-	}
-	if (bam) {
-		bam.addEventListener("click", function() {
-			bam.currentTime = 0;
-			sound_bam.play();
-		});
-	} else {
-		console.log("eror");
-	}
-}
-soundsBells();
+};
+dindon === init_sound_button_click(dindon, sound_bells);
+donlong === init_sound_button_click(donlong, sound_bells_don_long);
+quick === init_sound_button_click(quick, sound_quick);
+long === init_sound_button_click(long, sound_long);
+quick_two === init_sound_button_click(quick_two, sound_quick_two);
+bam === init_sound_button_click(bam, sound_bam);
 
 //keyboard click
 function keyboard_sound() {
